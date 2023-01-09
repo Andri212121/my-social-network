@@ -1,0 +1,36 @@
+.avatar {
+  width: 40px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.message {
+  background-color: #3f3f3f;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 500px;
+  word-break: break-word;
+  margin-left: 5px;
+  color: #cccccc;
+}
+
+.messageBox {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.userName {
+  color: #14ff0c;
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 17px;
+}
+
+/*# sourceMappingURL=message.module.css.map */

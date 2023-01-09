@@ -1,0 +1,12 @@
+* {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+}
+
+.link a {
+  color: #ababab;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=navbar.module.css.map */

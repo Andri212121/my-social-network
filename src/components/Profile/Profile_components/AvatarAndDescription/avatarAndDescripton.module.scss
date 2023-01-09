@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+.baner {
+  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616523070_43-p-svetlii-fon-45.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  height: 350px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.logo {
+  border-radius:60px;
+}
+
+.media {
+  display: flex;
+  height: 43%;
+  margin: 0 40px 40px 40px;
+  width: 92%;
+}
+
+.name {
+  font-family: Nunito, sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.info {
+  padding: 20px 0 0 10px;
+}
+
+.date, .city, .education, .website {
+  font-family: Nunito, sans-serif;
+  color: white;
+  font-weight: 300;
+  font-size: 17px;
+}

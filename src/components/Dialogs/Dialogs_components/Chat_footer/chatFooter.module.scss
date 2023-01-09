@@ -1,0 +1,59 @@
+.chatFooter {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBox {
+  background-color: #333333;
+  border-radius: 10px;
+  height: 60px;
+  width: 730px;
+  display: flex;
+  flex-direction: row;
+}
+
+.smiles {
+  height: 100%;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6px 0 6px;
+  color: #cccccc;
+  font-weight: lighter;
+}
+
+.inputField {
+  input {
+    width: 623px;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 300;
+    color: #cccccc;
+  }
+  input:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+.sendButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 6px 0 6px;
+  button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #3f3f3f;
+    color: #2fadff;
+    font-size: 23px;
+  }
+}

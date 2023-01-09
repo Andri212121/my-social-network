@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+.dialog {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+
+  img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.username {
+  font-family: Nunito, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 10px;
+  color: white;
+}
+
+.message {
+  font-family: Nunito, sans-serif;
+  font-size: 17px;
+  margin-left: 10px;
+  color: #cccccc;
+}
+
+.textContent {
+  padding: 10px 0 10px 0;
+}

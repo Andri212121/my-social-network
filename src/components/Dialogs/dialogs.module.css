@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+.wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  width: 100%;
+}
+
+.dialogs {
+  background-color: #232323;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: darkgrey;
+}
+
+.chat {
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding-top: 10px;
+}
+
+.chatContainer {
+  width: 700px;
+}
+
+/*# sourceMappingURL=dialogs.module.css.map */
