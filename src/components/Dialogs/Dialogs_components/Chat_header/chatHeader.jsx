@@ -1,6 +1,6 @@
 import s from './chatHeader.module.css'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+// import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 
 let ChatHeader = (props) => {
     return (

@@ -1,5 +1,7 @@
-const ADD_POST = "ADD-POST"
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+import profileReducer from "./profile-reducer";
+
+const ADD_POST = "ADD_POST"
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
 
 let store = {
     _state: {
@@ -53,34 +55,22 @@ let store = {
         console.log("State updated!")
     },
 
-    _addPost() {
-        let newPost = {
-            id: 5,
-            postText: this._state.profilePage.newPostText,
-            author: "erf"
-        }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = ''
-        this._callSubsriber(this._state);
-    },
-
-    _updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubsriber(this._state)
-    },
-
     dispatch(action) {
-        switch (action.type) {
-            case "ADD-POST":
-                this._addPost();
-                break;
-            case "UPDATE-NEW-POST-TEXT":
-                this._updateNewPostText(action.newText);
-                break;
-            default:
-                alert('(┬┬﹏┬┬)')
-                break;
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+
+        this._callSubsriber(this._state)
+    }
+}
+
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+}
+export const updateNewTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text
     }
 }
 
