@@ -24,14 +24,16 @@
   font-weight: lighter;
 }
 
-.inputField input {
-  width: 623px;
-  height: 100%;
+.inputField textarea {
+  width: 600px;
+  height: 50%;
   border: none;
   background-color: transparent;
   font-size: 16px;
   font-weight: 300;
   color: #cccccc;
+  padding: 20px 10px 5px 10px;
+  resize: none;
 }
 .inputField input:active, .inputField :hover, .inputField :focus {
   outline: 0;

@@ -27,7 +27,7 @@ let Dialogs = (props) => {
                     </div>
 
                 </ul>
-                <ChatFooter/>
+                <ChatFooter dialogPage={props.dialogsPage} dispatch={props.dispatch}/>
             </div>
 
         </div>
