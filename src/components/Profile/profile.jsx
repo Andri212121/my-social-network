@@ -1,18 +1,14 @@
 import s from './profile.module.css'
-import AvatarAndDescription from "./Profile_components/AvatarAndDescription/avatarAndDescription";
-import MyPost from "./Profile_components/MyPost/myPost";
-import Post from "./Profile_components/Post/Post";
+import AvatarAndDescription from "./Profile_components/MyPost/MyPost_components/AvatarAndDescription/avatarAndDescription";
+import MyPostContainer from "./Profile_components/MyPost/myPostContainer";
 
 
 let Profile = (props) => {
-    let posts = props.profilePage.posts.map(post => <Post postText={post.postText} author={post.author}/>);
-
     return (
         <div className="profile">
             <div className={s.container}>
                 <AvatarAndDescription/>
-                <MyPost newPostText={props.profilePage.newPostText} dispatch={props.dispatch}/>
-                {posts}
+                <MyPostContainer store={props.store}/>
             </div>
         </div>
     )

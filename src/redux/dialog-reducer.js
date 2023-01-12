@@ -46,7 +46,6 @@ const dialogReducer = (state = inicialState, action) => {
             break;
 
         case UPDATE_NEW_MESSAGE_TEXT:
-            debugger
             _updateNewPostText(action.newText)
             break;
 

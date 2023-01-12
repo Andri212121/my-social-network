@@ -7,17 +7,17 @@ import store from "./redux/redux-store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = (store) => {
     root.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
+            <App store={store}/>
         </React.StrictMode>
     );
 }
-rerenderEntireTree(store.getState());
+rerenderEntireTree(store);
 
 store.subscribe( () =>{
-    rerenderEntireTree(store.getState())
+    rerenderEntireTree(store)
 });
 
 // If you want to start measuring performance in your app, pass a function
