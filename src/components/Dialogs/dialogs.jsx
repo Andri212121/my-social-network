@@ -18,7 +18,7 @@ let Dialogs = (props) => {
                         <div style={{height: '1px'}}></div>
                     </div>
                 </ul>
-                <ChatFooterContainer store={props.store}/>
+                <ChatFooterContainer/>
             </div>
         </div>
     )

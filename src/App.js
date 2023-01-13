@@ -12,18 +12,18 @@ function App(props) {
 
     return (
         <BrowserRouter>
-            <div className="App" style={{height: windowInnerHeight}}>
-                <Header/>
-                <Navbar/>
-                <div className="content">
-                    <Routes>
-                        <Route path='/profile'
-                               element={<Profile store={props.store}/>}/>
-                        <Route path='/dialogs'
-                               element={<DialogsContainer store={props.store}/>}/>
-                    </Routes>
+                <div className="App" style={{height: windowInnerHeight}}>
+                    <Header/>
+                    <Navbar/>
+                    <div className="content">
+                        <Routes>
+                            <Route path='/profile'
+                                   element={<Profile store={props.store}/>}/>
+                            <Route path='/dialogs'
+                                   element={<DialogsContainer/>}/>
+                        </Routes>
+                    </div>
                 </div>
-            </div>
         </BrowserRouter>
     )
 }

@@ -33,26 +33,28 @@ const dialogReducer = (state = inicialState, action) => {
             message: state.newMessageText,
             owner: 1
         }
-        state.messages.push(newMessage)
-        state.newMessageText = ''
+        let stateCopy = {...state}
+        stateCopy.messages = [...state.messages]
+        stateCopy.messages.push(newMessage)
+        stateCopy.newMessageText = ''
+        return stateCopy
     }
 
     let _updateNewPostText = (newText) => {
-        state.newMessageText = newText;
+        let stateCopy = {...state}
+        stateCopy.newMessageText = newText;
+        return stateCopy
     }
     switch (action.type) {
         case SEND_MESSAGE:
-            _sendMessage()
-            break;
+            return _sendMessage();
 
         case UPDATE_NEW_MESSAGE_TEXT:
-            _updateNewPostText(action.newText)
-            break;
+            return _updateNewPostText(action.newText)
 
         default:
-            break;
+            return state
     }
-    return state;
 }
 
 export const sendMessageActionCreator = () => {

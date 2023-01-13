@@ -1,19 +1,18 @@
-
 const ADD_POST = "ADD_POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
 
 let inicialState = {
-        posts: [
-            {id: 1, postText: "po[kpok[poj[oj", author: "ijoijpohy"},
-            {id: 2, postText: "po[iuyg[ihuiyg[oj", author: "hiouhoiugoiu"},
-            {id: 3, postText: "po[kpokiuy[poj[oj", author: "uoigoiuhpo"},
-            {id: 5, postText: "po[gu[ioh[oj", author: "goiugyio"},
-            {id: 6, postText: "po[kpok[poj[oj", author: "ouhoiug"},
-            {id: 7, postText: "ses[tyfty[poj[oj", author: "oiugoiuhop[i"},
-            {id: 8, postText: "drd[kpok[poj[oj", author: "pijpoijpoij"}
-        ],
+    posts: [
+        {id: 1, postText: "po[kpok[poj[oj", author: "ijoijpohy"},
+        {id: 2, postText: "po[iuyg[ihuiyg[oj", author: "hiouhoiugoiu"},
+        {id: 3, postText: "po[kpokiuy[poj[oj", author: "uoigoiuhpo"},
+        {id: 5, postText: "po[gu[ioh[oj", author: "goiugyio"},
+        {id: 6, postText: "po[kpok[poj[oj", author: "ouhoiug"},
+        {id: 7, postText: "ses[tyfty[poj[oj", author: "oiugoiuhop[i"},
+        {id: 8, postText: "drd[kpok[poj[oj", author: "pijpoijpoij"}
+    ],
 
-        newPostText: ""
+    newPostText: ""
 }
 
 const profileReducer = (state = inicialState, action) => {
@@ -23,24 +22,28 @@ const profileReducer = (state = inicialState, action) => {
             postText: state.newPostText,
             author: "erf"
         }
-        state.posts.push(newPost);
-        state.newPostText = ''
+        let stateCopy = {...state}
+        stateCopy.posts = [...state.posts]
+        stateCopy.posts.push(newPost);
+        stateCopy.newPostText = ''
+        return stateCopy
     }
 
     let _updateNewPostText = (newText) => {
-        state.newPostText = newText;
+        let stateCopy = {...state}
+        stateCopy.newPostText = newText;
+        return stateCopy
     }
     switch (action.type) {
         case ADD_POST:
-            _addPost();
-            break;
+            return _addPost();
+
         case UPDATE_NEW_POST_TEXT:
-            _updateNewPostText(action.newText);
-            break;
+            return _updateNewPostText(action.newText);
+
         default:
-            break;
+            return state;
     }
-    return state;
 }
 
 export const addPostActionCreator = () => {
