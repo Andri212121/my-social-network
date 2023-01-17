@@ -5,25 +5,29 @@ import Navbar from "./components/Navbar/navbar";
 import Profile from "./components/Profile/profile";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/dialogsContainer";
+import UsersContainer from "./components/Users/usersContainer";
 
-function App(props) {
+
+function App() {
 
     const windowInnerHeight = document.documentElement.clientHeight
 
     return (
         <BrowserRouter>
-                <div className="App" style={{height: windowInnerHeight}}>
-                    <Header/>
-                    <Navbar/>
-                    <div className="content">
-                        <Routes>
-                            <Route path='/profile'
-                                   element={<Profile store={props.store}/>}/>
-                            <Route path='/dialogs'
-                                   element={<DialogsContainer/>}/>
-                        </Routes>
-                    </div>
+            <div className="App" style={{height: windowInnerHeight}}>
+                <Header/>
+                <Navbar/>
+                <div className="content">
+                    <Routes>
+                        <Route path='/profile'
+                               element={<Profile/>}/>
+                        <Route path='/dialogs'
+                               element={<DialogsContainer/>}/>
+                        <Route path='/users'
+                               element={<UsersContainer/>}/>
+                    </Routes>
                 </div>
+            </div>
         </BrowserRouter>
     )
 }

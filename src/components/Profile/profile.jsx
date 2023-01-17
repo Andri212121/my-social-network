@@ -3,12 +3,12 @@ import AvatarAndDescription from "./Profile_components/MyPost/MyPost_components/
 import MyPostContainer from "./Profile_components/MyPost/myPostContainer";
 
 
-let Profile = (props) => {
+let Profile = () => {
     return (
         <div className="profile">
             <div className={s.container}>
                 <AvatarAndDescription/>
-                <MyPostContainer store={props.store}/>
+                <MyPostContainer/>
             </div>
         </div>
     )

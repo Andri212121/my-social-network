@@ -1,0 +1,52 @@
+.container {
+  background-color: #9f9f9f;
+  width: 700px;
+  height: 90px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  width: 65px;
+  height: 100%;
+  margin-left: 15px;
+  img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  justify-content: center;
+  margin-left: 5px;
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.name {
+  width: 450px;
+}
+
+.additionalInfo {
+  display: inline-block;
+  font-size: 15px;
+  color: #595959;
+}
+
+.followButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  button{
+    width: 100px;
+    height: 40px;
+  }
+}
