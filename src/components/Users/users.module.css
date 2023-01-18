@@ -5,6 +5,7 @@
   border-radius: 15px;
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 }
 
 .avatar {
@@ -49,6 +50,28 @@
 .followButton button {
   width: 100px;
   height: 40px;
+}
+
+.title {
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+.selectedPage {
+  font-weight: bold;
+}
+
+.pageSelector {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: Nunito, sans-serif;
+  color: #f1f1f1;
+  font-weight: 100;
+}
+.pageSelector span {
+  margin: 0 1px;
 }
 
 /*# sourceMappingURL=users.module.css.map */

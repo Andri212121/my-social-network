@@ -1,26 +1,16 @@
 const SET_USERS = 'SET_USERS'
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
+const SELECTPAGE = 'SELECTPAGE'
 
 let inicialState = {
     users:{
         items: [
-            {
-                id: 1,
-                name: 'Andrew',
-                surname: 'Luchin',
-                photo:{
-                    small: null,
-                    large: null
-                },
-                status: null,
-                followed: false,
-                location: '',
-                study: '',
-                followers: 0,
-            },
+            {},
         ],
         totalCount: 0,
+        currentPage: 1,
+        pageSize: 5,
         error: null
     }
 }
@@ -28,9 +18,9 @@ let inicialState = {
 const usersReducer = (state = inicialState, action) => {
 
     let _setUsers = (data) => {
-        let stateCopy = {...state}
-        stateCopy.users.items = [...state.users.items]
-        stateCopy.users = data
+        let stateCopy = JSON.parse(JSON.stringify(state));
+        stateCopy.users.items = data.items
+        stateCopy.users.totalCount = data.totalCount
         return stateCopy
     }
 
@@ -58,6 +48,12 @@ const usersReducer = (state = inicialState, action) => {
         return stateCopy
     }
 
+    let _selectPage = (pageId) => {
+        let stateCopy = JSON.parse(JSON.stringify(state));
+        stateCopy.users.currentPage = pageId
+        return stateCopy
+    }
+
 
     switch (action.type) {
         case SET_USERS:
@@ -66,6 +62,8 @@ const usersReducer = (state = inicialState, action) => {
             return _follow(action.userId)
         case UNFOLLOW:
             return _unfollow(action.userId)
+        case SELECTPAGE:
+            return _selectPage(action.pageId)
         default:
             return state;
     }
@@ -87,6 +85,12 @@ export const unfollowAC = (id) => {
     return {
         type: UNFOLLOW,
         userId: id
+    }
+}
+export const selectPageAC = (id) => {
+    return {
+        type: SELECTPAGE,
+        pageId: id
     }
 }
 

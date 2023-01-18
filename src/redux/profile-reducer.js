@@ -4,12 +4,7 @@ const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
 let inicialState = {
     posts: [
         {id: 1, postText: "po[kpok[poj[oj", author: "ijoijpohy"},
-        {id: 2, postText: "po[iuyg[ihuiyg[oj", author: "hiouhoiugoiu"},
-        {id: 3, postText: "po[kpokiuy[poj[oj", author: "uoigoiuhpo"},
-        {id: 5, postText: "po[gu[ioh[oj", author: "goiugyio"},
-        {id: 6, postText: "po[kpok[poj[oj", author: "ouhoiug"},
-        {id: 7, postText: "ses[tyfty[poj[oj", author: "oiugoiuhop[i"},
-        {id: 8, postText: "drd[kpok[poj[oj", author: "pijpoijpoij"}
+        {id: 2, postText: "po[iuyg[ihuiyg[oj", author: "hiouhoiugoiu"}
     ],
 
     newPostText: ""
