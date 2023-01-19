@@ -2,11 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3001
 
-// /**
-//  * @param {{some_unres_var:string}} req.query.page
-//  * @param {{some_unres_var:string}} req.query.take
-//  */
-
 const db = {
     users: {
         items: [

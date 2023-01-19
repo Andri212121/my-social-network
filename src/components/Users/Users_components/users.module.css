@@ -65,13 +65,38 @@
 .pageSelector {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 8px;
   font-family: Nunito, sans-serif;
   color: #f1f1f1;
   font-weight: 100;
 }
 .pageSelector span {
   margin: 0 1px;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.users::-webkit-scrollbar {
+  width: 5px;
+}
+
+.users::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: darkgrey;
+}
+
+.users {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 92%;
+  width: 100%;
+  padding: 0 1px;
 }
 
 /*# sourceMappingURL=users.module.css.map */

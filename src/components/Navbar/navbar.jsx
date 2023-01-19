@@ -11,13 +11,7 @@ let Navbar = () => {
                 <NavLink to="/dialogs">Message</NavLink>
             </div>
             <div className={s.link}>
-                <NavLink to="/news">News</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/music">Music</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/setting">Settings</NavLink>
+                <NavLink to="/users">Users</NavLink>
             </div>
         </div>
     )
