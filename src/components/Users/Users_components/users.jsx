@@ -1,6 +1,6 @@
-import React from "react";
-import s from "./users.module.css";
-import avatarLogo from "../../../assets/img/Avatar.png";
+import React from 'react';
+import s from './users.module.css';
+import avatarLogo from '../../../assets/img/Avatar.png';
 
 let Users = (props) => {
     return (

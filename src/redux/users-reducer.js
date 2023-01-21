@@ -2,6 +2,7 @@ const SET_USERS = 'SET_USERS'
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SELECTPAGE = 'SELECTPAGE'
+const FETCHING_STATUS = 'FETCHING_STATUS'
 
 let inicialState = {
     users:{
@@ -11,6 +12,7 @@ let inicialState = {
         totalCount: 0,
         currentPage: 1,
         pageSize: 8,
+        isFetching: false,
         error: null
     }
 }
@@ -54,6 +56,11 @@ const usersReducer = (state = inicialState, action) => {
         return stateCopy
     }
 
+    let _isFetching = (status) => {
+        let stateCopy = JSON.parse(JSON.stringify((state)));
+        stateCopy.users.isFetching = status
+        return stateCopy
+    }
 
     switch (action.type) {
         case SET_USERS:
@@ -64,34 +71,17 @@ const usersReducer = (state = inicialState, action) => {
             return _unfollow(action.userId)
         case SELECTPAGE:
             return _selectPage(action.pageId)
+        case FETCHING_STATUS:
+            return _isFetching(action.status)
         default:
             return state;
     }
 }
 
-export const setUsersAC = (info) => {
-    return {
-        type: SET_USERS,
-        data: info
-    }
-}
-export const followAC = (id) => {
-    return {
-        type: FOLLOW,
-        userId: id
-    }
-}
-export const unfollowAC = (id) => {
-    return {
-        type: UNFOLLOW,
-        userId: id
-    }
-}
-export const selectPageAC = (id) => {
-    return {
-        type: SELECTPAGE,
-        pageId: id
-    }
-}
+export const setUsersAC = (info) => { return { type: SET_USERS,  data: info } }
+export const followAC = (id) => { return { type: FOLLOW, userId: id } }
+export const unfollowAC = (id) => { return { type: UNFOLLOW, userId: id } }
+export const selectPageAC = (id) => { return { type: SELECTPAGE, pageId: id } }
+export const fetchingStatusChangeAC = (stat) => {return { type: FETCHING_STATUS, status: stat } }
 
 export default usersReducer;
