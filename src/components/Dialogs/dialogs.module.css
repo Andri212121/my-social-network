@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
 .wrapper {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: auto 270px;
   grid-template-rows: 1fr;
   grid-column-gap: 0;
   grid-row-gap: 0;
@@ -9,7 +9,7 @@
 }
 
 .dialogs {
-  background-color: #232323;
+  background-color: #080D1E;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -30,6 +30,7 @@ ul::-webkit-scrollbar-thumb {
   justify-content: center;
   list-style-type: none;
   padding-top: 10px;
+  background-color: #091025;
 }
 
 .chatContainer {

@@ -1,7 +1,60 @@
 .link a {
+  display: flex;
+  align-items: center;
   color: #ababab;
-  font-size: 28px;
-  margin-top: 10px;
+  font-size: 18px;
+  margin-top: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
+}
+.link .icon {
+  color: #9f9f9f;
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+}
+.link a:hover {
+  color: #ffffff;
+}
+
+.content {
+  background-color: #080D1E;
+}
+.content p {
+  color: #9f9f9f;
+  padding-left: 24px;
+  font-size: 13px;
+  font-family: Nunito, sans-serif;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 100px;
+}
+.profile .avatar {
+  width: 55px;
+  height: 55px;
+}
+.profile .avatar img {
+  width: 55px;
+  height: 55px;
+}
+.profile .info {
+  margin-left: 12px;
+}
+.profile .info .name {
+  color: white;
+  font-family: Nunito, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.profile .info .username {
+  color: #c5c5c5;
+  font-family: Nunito, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=navbar.module.css.map */

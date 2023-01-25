@@ -1,11 +1,68 @@
+.link {
+  a {
+    display: flex;
+    align-items: center;
+    color: #ababab;
+    font-size: 18px;
+    margin-top: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-decoration: none;
+  }
 
+  .icon {
+    color: #9f9f9f;
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+  }
 
-.link a{
-  color: #ababab;
-  font-size: 28px;
-  margin-top: 10px;
+  a:hover {
+    color: #ffffff;
+  }
 }
 
-.link a.active {
+.content {
+  background-color: #080D1E;
 
+  p {
+    color: #9f9f9f;
+    padding-left: 24px;
+    font-size: 13px;
+    font-family: Nunito, sans-serif;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 100px;
+
+  .avatar {
+    width: 55px;
+    height: 55px;
+
+    img {
+      width: 55px;
+      height: 55px;
+    }
+  }
+
+  .info {
+    margin-left: 12px;
+
+    .name {
+      color: white;
+      font-family: Nunito, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .username {
+      color: #c5c5c5;
+      font-family: Nunito, sans-serif;
+      font-weight: 100;
+      font-size: 14px;
+    }
+  }
 }

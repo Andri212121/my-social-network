@@ -10,11 +10,10 @@ import UsersContainer from "./components/Users/usersContainer";
 
 function App() {
 
-    const windowInnerHeight = document.documentElement.clientHeight
 
     return (
         <BrowserRouter>
-            <div className="App" style={{height: windowInnerHeight}}>
+            <div className="App" style={{height: '100vh'}}>
                 <Header/>
                 <Navbar/>
                 <div className="content">

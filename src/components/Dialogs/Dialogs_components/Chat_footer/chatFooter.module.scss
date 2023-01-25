@@ -2,10 +2,11 @@
   height: 70px;
   display: flex;
   justify-content: center;
+  background-color: #091025;
 }
 
 .searchBox {
-  background-color: #333333;
+  background-color: #080D1E;
   border-radius: 10px;
   height: 60px;
   width: 730px;
@@ -53,9 +54,9 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: none;
-    background-color: #3f3f3f;
+    background-color: #091025;
     color: #2fadff;
     font-size: 23px;
+    border: solid 2px #16094f;
   }
 }
