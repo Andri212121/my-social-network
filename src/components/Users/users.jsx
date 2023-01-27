@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './users.module.css';
-import avatarLogo from '../../../assets/img/Avatar.png';
+import avatarLogo from '../../assets/img/Avatar.png';
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     return (
@@ -13,7 +14,9 @@ let Users = (props) => {
                     props.users.map(u =>
                         <div className={s.container} key={u.id}>
                             <div className={s.avatar}>
+                                <NavLink to={'/profile/'+u.id}>
                                 <img src={avatarLogo} alt=""/>
+                                </NavLink>
                             </div>
                             <div className={s.info}>
                                 <div className={s.name}>{u.name + ' ' + u.surname}</div>

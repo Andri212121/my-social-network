@@ -1,7 +1,36 @@
+
 const ADD_POST = "ADD_POST"
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT"
+const SET_PROFILE = "SET_PROFILE"
 
 let inicialState = {
+    profile: {
+        aboutMe: null,
+        contacts: {
+            facebook: null,
+            website: null,
+            twitter: null,
+            instagram: null,
+            youtube: null,
+            github: null,
+            mainLink: null
+        },
+        lookingForAJob: false,
+        lookingForAJobDescription: null,
+        name: '',
+        surname: '',
+        id: 0,
+        location: '',
+        followers: '',
+        education: '',
+        dayOfBirth: 0,
+        monthOfBirth: 0,
+        yearOfBirth: 0,
+        photos: {
+            small: null,
+            large: null
+        }
+    },
     posts: [
         {id: 1, postText: "po[kpok[poj[oj", author: "ijoijpohy"},
         {id: 2, postText: "po[iuyg[ihuiyg[oj", author: "hiouhoiugoiu"}
@@ -29,6 +58,13 @@ const profileReducer = (state = inicialState, action) => {
         stateCopy.newPostText = newText;
         return stateCopy
     }
+
+    let _setProfile = (profile) => {
+        let stateCopy = JSON.parse(JSON.stringify(state));
+        stateCopy.profile = profile
+        return stateCopy
+    }
+
     switch (action.type) {
         case ADD_POST:
             return _addPost();
@@ -36,20 +72,21 @@ const profileReducer = (state = inicialState, action) => {
         case UPDATE_NEW_POST_TEXT:
             return _updateNewPostText(action.newText);
 
+        case SET_PROFILE:
+            return _setProfile(action.newProfile);
         default:
             return state;
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
+export const addPostAC = () => {
+    return {type: ADD_POST}
 }
-export const updateNewTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
+export const updateNewTextAC = (text) => {
+    return {type: UPDATE_NEW_POST_TEXT, newText: text}
 }
+export const setProfileAC = (profile) => {
+    return {type: SET_PROFILE, newProfile: profile}
+}
+
 export default profileReducer;

@@ -3,6 +3,7 @@
   align-items: center;
   height: 70px;
   padding-left: 10px;
+  border-bottom: solid 2px #080D1E;
 }
 
 .logo {

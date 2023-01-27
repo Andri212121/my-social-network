@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {fetchingStatusChangeAC, followAC, selectPageAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
 import {useEffect} from "react";
 import axios from "axios";
-import Users from "./Users_components/users";
+import Users from "./users";
 import preLoader from '../../assets/img/Loader.svg'
 
 let UsersAPIContainer = (props) => {
