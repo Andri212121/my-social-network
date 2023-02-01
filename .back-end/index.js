@@ -1,6 +1,17 @@
 const express = require('express')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
+
 const app = express()
 const port = 3001
+
+app.use(cors({
+    origin: "http://localhost:3000",
+    method: ["GET", "POTS", "PUT", "DELETE"],
+    credentials: true,
+}))
+
+app.use(cookieParser())
 
 const db = {
     users: {
@@ -56,6 +67,8 @@ const db = {
     }
 }
 
+
+
 app.get('/users/', (req, res) => {
     db.users.totalCount = db.users.items.length
     let page = req.query.page;
@@ -73,7 +86,11 @@ app.get('/profile/:userId', (req, res) => {
     res.json(user)
 })
 
-
+app.get('/auth/me', (req, res) => {
+    console.log(req.cookies)
+    // res.cookie('userId', '1');
+    res.status(200).json('all good')
+})
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
