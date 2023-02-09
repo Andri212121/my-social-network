@@ -2,7 +2,6 @@ import s from './avatarAndDescripton.module.css'
 import avatar from '../../../../../../assets/img/Avatar.png'
 
 let AvatarAndDescription = (props) => {
-    console.log(props.profile.photos.small)
     return (
         <div>
             <div className={s.baner}>

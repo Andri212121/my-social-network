@@ -9,7 +9,11 @@ let UsersAPIContainer = (props) => {
 
     useEffect(() => {
         props.fetchingStatusChange(true)
-        axios.get(`http://localhost:3001/users?page=${props.currentPage}&take=${props.pageSize}`).then(response => {
+        axios.get(`http://localhost:3001/users?page=${props.currentPage}&take=${props.pageSize}`,
+            {
+                withCredentials: true
+            }
+            ).then(response => {
             props.fetchingStatusChange(false)
             props.setUsers(response.data)
         })
@@ -25,7 +29,11 @@ let UsersAPIContainer = (props) => {
     let changePage = (pageId) => {
         props.selectPage(pageId)
         props.fetchingStatusChange(true)
-        axios.get(`http://localhost:3001/users?page=${pageId}&take=${props.pageSize}`).then(response => {
+        axios.get(`http://localhost:3001/users?page=${pageId}&take=${props.pageSize}`,
+            {
+            withCredentials: true
+        }
+    ).then(response => {
             props.setUsers(response.data)
             props.fetchingStatusChange(false)
         })

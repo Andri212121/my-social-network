@@ -11,7 +11,12 @@ let ProfileAPIContainer = (props) => {
 
         useEffect( () => {
                 if (id !== undefined) {
-                    axios.get(`http://localhost:3001/profile/${id}`).then(response => {
+                    axios.get(`http://localhost:3001/profile/`+ id,
+                        {
+                            withCredentials: true
+                        }
+                        ).then(response => {
+                        debugger
                         props.setProfile(response.data)
                     })
                 }
