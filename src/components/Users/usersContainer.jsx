@@ -7,7 +7,7 @@ import preLoader from '../../assets/img/Loader.svg'
 
 let UsersAPIContainer = (props) => {
 
-    useEffect(() => {
+        useEffect(() => {
         props.fetchingStatusChange(true)
         axios.get(`http://localhost:3001/users?page=${props.currentPage}&take=${props.pageSize}`,
             {
@@ -38,6 +38,32 @@ let UsersAPIContainer = (props) => {
             props.fetchingStatusChange(false)
         })
     }
+    let follow = (usersId) => {
+        props.fetchingStatusChange(true)
+        axios.post(`http://localhost:3001/follow/${usersId}`,{},
+            {
+                withCredentials: true
+            }
+        ).then(response => {
+            props.fetchingStatusChange(false)
+            if(response.status === 200){
+                props.follow(usersId)
+            }
+        })
+    }
+    let unfollow = (usersId) => {
+        props.fetchingStatusChange(true)
+        axios.delete(`http://localhost:3001/follow/${usersId}`,
+            {
+                withCredentials: true
+            }
+        ).then(response => {
+            props.fetchingStatusChange(false)
+            if(response.status === 200){
+                props.unfollow(usersId)
+            }
+        })
+    }
     return (
         <>
             {props.isFetching ? <img src={preLoader} alt='preloader' style={{
@@ -52,8 +78,8 @@ let UsersAPIContainer = (props) => {
                 users={props.users}
                 pages={pages}
                 changePage={changePage}
-                follow={props.follow}
-                unfollow={props.unfollow}
+                follow={follow}
+                unfollow={unfollow}
                 currentPage={props.currentPage}/>
         </>
     )
