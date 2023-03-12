@@ -1,19 +1,15 @@
 import {connect} from "react-redux";
 import {fetchingStatusChangeAC, followAC, selectPageAC, setUsersAC, unfollowAC} from "../../redux/users-reducer";
 import {useEffect} from "react";
-import axios from "axios";
 import Users from "./users";
 import preLoader from '../../assets/img/Loader.svg'
+import {following, getUsers, unFollowing} from "../../api/api";
 
 let UsersAPIContainer = (props) => {
 
-        useEffect(() => {
+    useEffect(() => {
         props.fetchingStatusChange(true)
-        axios.get(`http://localhost:3001/users?page=${props.currentPage}&take=${props.pageSize}`,
-            {
-                withCredentials: true
-            }
-            ).then(response => {
+        getUsers(props.currentPage, props.pageSize).then(response => {
             props.fetchingStatusChange(false)
             props.setUsers(response.data)
         })
@@ -29,37 +25,25 @@ let UsersAPIContainer = (props) => {
     let changePage = (pageId) => {
         props.selectPage(pageId)
         props.fetchingStatusChange(true)
-        axios.get(`http://localhost:3001/users?page=${pageId}&take=${props.pageSize}`,
-            {
-            withCredentials: true
-        }
-    ).then(response => {
+        getUsers(pageId, props.currentPage).then(response => {
             props.setUsers(response.data)
             props.fetchingStatusChange(false)
         })
     }
     let follow = (usersId) => {
         props.fetchingStatusChange(true)
-        axios.post(`http://localhost:3001/follow/${usersId}`,{},
-            {
-                withCredentials: true
-            }
-        ).then(response => {
+        following(usersId).then(response => {
             props.fetchingStatusChange(false)
-            if(response.status === 200){
+            if (response.status === 200) {
                 props.follow(usersId)
             }
         })
     }
     let unfollow = (usersId) => {
         props.fetchingStatusChange(true)
-        axios.delete(`http://localhost:3001/follow/${usersId}`,
-            {
-                withCredentials: true
-            }
-        ).then(response => {
+        unFollowing(usersId).then(response => {
             props.fetchingStatusChange(false)
-            if(response.status === 200){
+            if (response.status === 200) {
                 props.unfollow(usersId)
             }
         })
@@ -73,7 +57,8 @@ let UsersAPIContainer = (props) => {
                 left: "0",
                 right: "0",
                 textAlign: "center",
-                top: "40%"}}/> : null}
+                top: "40%"
+            }}/> : null}
             <Users
                 users={props.users}
                 pages={pages}

@@ -36,7 +36,8 @@ let inicialState = {
         {id: 2, postText: "po[iuyg[ihuiyg[oj", author: "hiouhoiugoiu"}
     ],
 
-    newPostText: ""
+    newPostText: "",
+    currentAuthUserId: null
 }
 
 const profileReducer = (state = inicialState, action) => {

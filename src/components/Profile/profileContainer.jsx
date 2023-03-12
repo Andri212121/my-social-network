@@ -3,7 +3,7 @@ import Profile from "./profile";
 import {setProfileAC} from "../../redux/profile-reducer";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import axios from "axios";
+import {getProfile} from "../../api/api";
 
 
 let ProfileAPIContainer = (props) => {
@@ -11,12 +11,7 @@ let ProfileAPIContainer = (props) => {
 
         useEffect( () => {
                 if (id !== undefined) {
-                    axios.get(`http://localhost:3001/profile/`+ id,
-                        {
-                            withCredentials: true
-                        }
-                        ).then(response => {
-                        debugger
+                    getProfile(id).then(response => {
                         props.setProfile(response.data)
                     })
                 }

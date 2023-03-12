@@ -51,6 +51,41 @@ const db = {
                     large: null
                 }
             },
+            {
+                id: 2,
+                name: 'popoj',
+                lastname: 'ojpoj',
+                surname: 'pojpoi[',
+                photo: {
+                    small: 'null',
+                    large: 'null'
+                },
+                status: null,
+                followed: false,
+                location: 'Kiev',
+                study: '',
+                followers: [1],
+                aboutMe: null,
+                contacts: {
+                    facebook: null,
+                    website: null,
+                    twitter: null,
+                    instagram: null,
+                    youtube: null,
+                    github: null,
+                    mainLink: null
+                },
+                lookingForAJob: false,
+                lookingForAJobDescription: null,
+                education: 'The best college in Ukraine, VFK NAU',
+                dayOfBirth: '21',
+                monthOfBirth: '08',
+                yearOfBirth: '2004',
+                photos: {
+                    small: null,
+                    large: null
+                }
+            },
         ],
         totalCount: 0,
         error: null
@@ -58,16 +93,19 @@ const db = {
 }
 
 
-
 app.get('/users/', (req, res) => {
     db.users.totalCount = db.users.items.length
     let {page} = req.query;
     let {take} = req.query;
     let dbCopy = JSON.parse(JSON.stringify(db));
-    for(let i = 0; i < dbCopy.users.items.length; i++) {
+
+    const isLargeNumber = (element) => element.id === parseInt(req.cookies.userId);
+    dbCopy.users.items.splice(db.users.items.findIndex(isLargeNumber), 1)
+
+    for (let i = 0; i < dbCopy.users.items.length; i++) {
         let find = false
-        for(let j = 0; j < dbCopy.users.items[i].followers.length; j++){
-            if(dbCopy.users.items[i].followers[j] === parseInt(req.cookies.userId)){
+        for (let j = 0; j < dbCopy.users.items[i].followers.length; j++) {
+            if (dbCopy.users.items[i].followers[j] === parseInt(req.cookies.userId)) {
                 find = true
                 break;
             }
@@ -93,27 +131,27 @@ app.get('/auth/me', (req, res) => {
 app.post('/follow/:userId', (req, res) => {
     let id = req.params.userId
     let userId = req.cookies.userId
-    if(userId === undefined){
+    if (userId === undefined) {
         res.status(401).json("Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.")
     }
-    for(let i = 0; i < db.users.totalCount; i++){
-        if(db.users.items[i].id === parseInt(id)){
+    for (let i = 0; i < db.users.totalCount; i++) {
+        if (db.users.items[i].id === parseInt(id)) {
             db.users.items[i].followers.push(parseInt(userId))
         }
     }
     res.status(200).json('done')
 })
+
 app.delete('/follow/:userId', (req, res) => {
     let id = req.params.userId
     let userId = req.cookies.userId
-    if(userId === undefined){
+    if (userId === undefined) {
         res.status(401).json("Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response.")
     }
-    for(let i = 0; i < db.users.totalCount; i++){
-        if(db.users.items[i].id === parseInt(id)){
+    for (let i = 0; i < db.users.totalCount; i++) {
+        if (db.users.items[i].id === parseInt(id)) {
             const isLargeNumber = (element) => element === parseInt(id);
-            console.log(isLargeNumber)
-            db.users.items[i].followers.splice(db.users.items[i].followers.findIndex(isLargeNumber), db.users.items[i].followers.findIndex(isLargeNumber))
+            db.users.items[i].followers.splice(db.users.items[i].followers.findIndex(isLargeNumber), 1)
         }
     }
     res.status(200).json('done')
